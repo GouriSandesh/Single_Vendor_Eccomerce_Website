@@ -1,0 +1,153 @@
+body{
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-nav{
+  margin-left: 100px;
+}
+
+.nav-item{
+  padding-left: 15px;
+}
+
+
+#search{
+  width: 350px;
+}
+
+#logo{
+  font-family:cursive;
+}
+
+.dropdown:hover .dropdown-menu{
+  display: block;
+}
+
+#searchform input{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#searchform button{
+  border: 0;
+}
+
+.nav-item a{
+  color: black;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+footer a{
+  text-decoration: none;
+  color: black;
+}
+
+.brand-name img{
+  transition: 0.5s;
+}
+
+.brand-name img:hover {
+  /* box-shadow: 0 0 55px rgba(7, 7, 8, 0.4); */
+  box-shadow: 0 0 60px rgb(10, 0, 0);
+  transform: scale(1.1);
+}
+
+.categories-image img{
+  transition: 0.5s;
+}
+
+.categories-image img:hover{
+  box-shadow: 0 0 60px rgb(10, 0, 0);
+}
+
+/* lohin 7 Signup */
+
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.modal-body{
+  position: absolute;
+  top: 500%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.regbox .registration{
+  display: none;
+}
+
+#check:checked ~ .registration{
+  display: block;
+}
+
+#check:checked ~ .login{
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+.regbox .form{
+  padding: 2rem;
+}
+
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form input{
+  height: 60px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 1.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+.form input:focus{
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.form a{
+ font-size: 16px;
+ color: #009579;
+ text-decoration: none;
+}
+.form a:hover{
+ text-decoration: underline;
+}
+.form input.button{
+ color: #fff;
+ background: #009579;
+ font-size: 1.2rem;
+ font-weight: 500;
+ letter-spacing: 1px;
+ margin-top: 1.7rem;
+ cursor: pointer;
+ transition: 0.4s;
+}
+.form input.button:hover{
+ background: #006653;
+}
+.signup{
+ font-size: 17px;
+ text-align: center;
+}
+.signup label{
+ color: #009579;
+ cursor: pointer;
+}
+.signup label:hover{
+ text-decoration: underline;
+}
+

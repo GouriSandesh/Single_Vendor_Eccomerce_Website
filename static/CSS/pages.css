@@ -1,0 +1,42 @@
+
+  body{
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .navbar-nav{
+    margin-left: 100px;
+  }
+  
+  .nav-item{
+    padding-left: 15px;
+  }
+  
+  
+  #search{
+    width: 350px;
+  }
+  
+  #logo{
+    font-family:cursive;
+  }
+  
+  .dropdown:hover .dropdown-menu{
+    display: block;
+  }
+  
+  #searchform input{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #searchform button{
+    border: 0;
+  }
+  
+  .nav-item a{
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
