@@ -75,13 +75,13 @@ The following screenshots provide visual examples of the application's features.
 
 ![Screenshot 2025-01-15 233329](https://github.com/user-attachments/assets/cfbf885a-24d1-494e-81ab-70117f7ef703)
 
-![Screenshot 2025-01-15 233402](https://github.com/user-attachments/assets/d1e686d6-d21c-4dd1-b25f-bdc36d58085c)
+![Screenshot 2025-01-15 233418](https://github.com/user-attachments/assets/5ceb6fd0-4519-4d9b-ba4f-0c3adf6e9b06)
 
 9.Order Management
 
-![Screenshot 2025-01-15 233418](https://github.com/user-attachments/assets/5ceb6fd0-4519-4d9b-ba4f-0c3adf6e9b06)
+![Screenshot 2025-01-15 233134](https://github.com/user-attachments/assets/41ad26f2-b40e-4246-9a9a-4521e56d2b55)
 
-![Screenshot 2025-01-15 233134](https://github.com/user-attachments/assets/0c4f33a0-9342-4c7b-84ec-88dcca147f1e)
+![Screenshot 2025-01-15 233245](https://github.com/user-attachments/assets/4c2087c0-0dfe-4a39-adb2-ddf74e69ab80)
 
 
 FUTURE SCOPES
