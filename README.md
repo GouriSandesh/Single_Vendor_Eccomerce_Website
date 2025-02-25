@@ -15,7 +15,9 @@ b.Dashboard : Overview of the key metrics(Products, Customers, Orders).
 
 c.Product Management  : 
   1.Add Product :  Create new products with details (Name, Description, Price, Images, Categories, Sub Categories).
+  
   2.Edit Product : Update existing product information, including inventory, pricing, and images.
+  
   3.View Product Details : Detailed view of individual products 
 
 d.Order Management :
