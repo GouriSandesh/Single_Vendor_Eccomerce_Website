@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h2>Complete Your Order</h2>
+
+{% if address %}
+    <p><strong>Shipping to:</strong> {{ address.address }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Place Order</button>
+    </form>
+
+{% else %}
+    <h3>Shipping Address</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <h4>Fill Shipping Address</h4>
+        {{ address_form.as_p }}
+        <h4>Order Details</h4>
+        {{ order_form.as_p }}
+        <button type="submit">Place Order</button>
+    </form>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+{% extends 'admin2.html' %}
+{% block content %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %} <!-- Load widget tweaks -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/filepond/5.0.0/filepond.min.css" rel="stylesheet">
+
+<style>
+    /* General form styling */
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 700px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-box {
+        width: 100%;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #f8f9fa;
+        padding-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    /* Form field styling */
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+    }
+
+    /* Image upload styling */
+    .image-upload-container {
+        margin-top: 20px;
+    }
+
+    .filepond--wrapper {
+        width: 100%;
+    }
+
+    .image-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed #007bff;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #007bff;
+        font-size: 14px;
+    }
+
+    .image-label:hover {
+        background-color: #eaf3ff;
+    }
+
+    .image-input {
+        display: none;
+    }
+</style>
+
+<div class="card">
+    <div class="form-container">
+        <div class="form-box">
+            <h1 class="form-title">Add a New Product</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Render form fields dynamically -->
+                {{ form.non_field_errors }}
+                {% for field in form.visible_fields %}
+                    {% if field.name not in "image image2 image3" %}
+                        <div>
+                            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field|attr:"class:form-control" }}
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Styled image upload fields -->
+                <div class="image-upload-container">
+                    <label class="image-label" for="id_image">
+                        <i class="fas fa-upload"></i> Upload Image 1
+                    </label>
+                    <input type="file" id="id_image" name="image" class="image-input" accept="image/*">
+
+                    <label class="image-label" for="id_image2">
+                        <i class="fas fa-upload"></i> Upload Image 2
+                    </label>
+                    <input type="file" id="id_image2" name="image2" class="image-input" accept="image/*">
+
+                    <label class="image-label" for="id_image3">
+                        <i class="fas fa-upload"></i> Upload Image 3
+                    </label>
+                    <input type="file" id="id_image3" name="image3" class="image-input" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Include FilePond JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/filepond/5.0.0/filepond.min.js"></script>
+
+<script>
+    // Activate FilePond on all file input fields
+    FilePond.create(document.querySelector('#id_image'), {
+        labelIdle: 'Drag & Drop or <span class="filepond--label-action">Browse</span>',
+    });
+
+    FilePond.create(document.querySelector('#id_image2'), {
+        labelIdle: 'Drag & Drop or <span class="filepond--label-action">Browse</span>',
+    });
+
+    FilePond.create(document.querySelector('#id_image3'), {
+        labelIdle: 'Drag & Drop or <span class="filepond--label-action">Browse</span>',
+    });
+</script>
+
+{% endblock %}

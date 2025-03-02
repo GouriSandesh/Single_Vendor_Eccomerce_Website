@@ -1,0 +1,53 @@
+ <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+        <div class="container-fluid">
+          <a id="logo" class="navbar-brand" href="{% url 'homepage' %}">FashionEmpire</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'men' %}">MEN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'women' %}">WOMEN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'kids' %}">KIDS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'jewel' %}">JEWELLERY</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'bags' %}">BAGS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'foot' %}">FOOTWEAR</a>
+              </li>
+              <form class="d-flex" role="search" id="searchform">
+                <input id="search" class="form-control me-2" type="search" placeholder="Search for products,brands and more" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit"><i data-feather="search"></i></button>
+              </form>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i data-feather="user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'login_page' %}">LOGIN | SIGNUP</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Orders</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Wishlist</a></li>
+                  <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link popUp" href="#"><i data-feather="heart"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="guest_cart"><i data-feather="shopping-bag"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>

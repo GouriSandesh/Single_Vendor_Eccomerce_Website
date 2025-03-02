@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Payment Method</h1>
+
+        <!-- Order Summary Section -->
+        <div class="summary">
+            <h2>Order Summary</h2>
+            <p>Items: 3</p>
+            <p>Total: $150</p>
+            <p>Shipping: $10</p>
+            <p><strong>Total Amount: $160</strong></p>
+        </div>
+
+        <!-- Payment Selection Section -->
+        <div class="payment-selection">
+            <h3>Select a Payment Method</h3>
+            <form id="payment-method-form">
+                <label>
+                    <input type="radio" name="payment-method" value="card" onclick="showPaymentOption('card')" required>
+                    Credit/Debit Card
+                </label><br>
+
+                <label>
+                    <input type="radio" name="payment-method" value="upi" onclick="showPaymentOption('upi')">
+                    UPI
+                </label><br>
+
+                <label>
+                    <input type="radio" name="payment-method" value="cod" onclick="showPaymentOption('cod')">
+                    Cash on Delivery (COD)
+                </label><br>
+
+                <label>
+                    <input type="radio" name="payment-method" value="netbanking" onclick="showPaymentOption('netbanking')">
+                    Net Banking
+                </label><br>
+            </form>
+        </div>
+
+        <!-- Payment Method Forms -->
+        <div class="payment-methods">
+
+            <!-- Credit/Debit Card Form -->
+            <div class="payment-option" id="card" style="display:none;">
+                <h3>Pay with Credit/Debit Card</h3>
+                <form>
+                    <label for="cardholder-name">Cardholder Name:</label>
+                    <input type="text" id="cardholder-name" name="cardholder-name" placeholder="John Doe" required>
+
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number" maxlength="16" placeholder="1234 5678 9101 1121" required>
+
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" required>
+
+                    <input type="checkbox" id="save-card" name="save-card">
+                    <label for="save-card">Save card for future payments</label>
+
+                    <button type="submit">Proceed with Payment</button>
+                </form>
+            </div>
+
+            <!-- UPI Form -->
+            <div class="payment-option" id="upi" style="display:none;">
+                <h3>Pay Using UPI</h3>
+                <form>
+                    <label for="upi-id">UPI ID:</label>
+                    <input type="text" id="upi-id" name="upi-id" placeholder="name@bank" required>
+
+                    <button type="submit">Pay via UPI</button>
+                </form>
+                <p>Or scan the QR code with your UPI app.</p>
+                <img src="qrcode-placeholder.png" alt="QR Code" class="qr-code">
+            </div>
+
+            <!-- Cash on Delivery (COD) -->
+            <div class="payment-option" id="cod" style="display:none;">
+                <h3>Cash on Delivery (COD)</h3>
+                <p>Pay with cash when your order is delivered. Additional charges may apply.</p>
+                <button type="submit">Confirm Cash on Delivery</button>
+            </div>
+
+            <!-- Net Banking Form -->
+            <div class="payment-option" id="netbanking" style="display:none;">
+                <h3>Pay Using Net Banking</h3>
+                <form>
+                    <label for="bank">Choose Your Bank:</label>
+                    <select id="bank" name="bank" required>
+                        <option value="">Select Bank</option>
+                        <option value="bank1">Bank 1</option>
+                        <option value="bank2">Bank 2</option>
+                        <option value="bank3">Bank 3</option>
+                    </select>
+
+                    <button type="submit">Proceed with Net Banking</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- FAQs Section -->
+        <div class="faqs">
+            <h3>FAQs</h3>
+            <p><strong>Can I pay using both Credit and Debit Cards?</strong> Yes, you can use both types of cards.</p>
+            <p><strong>How does UPI work?</strong> UPI lets you transfer money from your bank using a unique ID. It’s quick and secure.</p>
+            <p><strong>Is Cash on Delivery available everywhere?</strong> COD is available in most areas, but some locations may have restrictions.</p>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="final-cta">
+            <button class="place-order-btn">Place Order</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function showPaymentOption(option) {
+            // Hide all payment options
+            document.querySelectorAll('.payment-option').forEach(function(element) {
+                element.style.display = 'none';
+            });
+
+            // Show the selected payment option
+            document.getElementById(option).style.display = 'block';
+        }
+    </script>
+
+    <!-- CSS Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary, .payment-methods, .faqs {
+            margin-bottom: 20px;
+        }
+
+        .summary h2, .payment-option h3, .faqs h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .summary p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .payment-selection {
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .qr-code {
+            max-width: 200px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .faqs p {
+            margin: 10px 0;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #28a745;
+        }
+
+        .place-order-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</body>
+</html>

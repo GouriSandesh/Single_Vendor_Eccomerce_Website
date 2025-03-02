@@ -1,0 +1,27 @@
+{% extends 'cust_dash.html' %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3>Profile Information</h3>
+        </div>
+        <div class="card-body">
+          <form method="post" action="{% url 'profile' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

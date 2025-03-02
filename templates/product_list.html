@@ -1,0 +1,48 @@
+{% extends 'admin2.html' %}
+{% block content %}
+
+{% load icons %}
+
+	  <script src="https://kit.fontawesome.com/0bfcbd3c76.js" crossorigin="anonymous"></script>
+
+
+<div >
+  <div class="card">
+    <div class="card-body">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><input type="checkbox" name="..." ></th>
+      <th scope="col" style="text-align:center">PRODUCT NAME</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">CATEGORY</th>
+      <th scope="col">QTY</th>
+      <th scope="col" style="text-align:center">ACTIONS</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr>
+      <td><input type="checkbox" name="..." ></a> </td>
+      <td><a href="{% url 'product_detail' pk=i.pk %}"> <img src="{{i.image.url}}" height="50px"> {{i.product_name}}</a></td>
+      <td >{{i.price}}</td>
+      <td>{{i.Category}}</td>
+      <td>{{i.QTY}}</td>
+      <td><a  href="{% url 'update_product' i.id %}" style="margin-left:30px">{% icon 'edit' %}</a>
+        <a  href="{% url 'delete_product' i.id %}">{% icon 'del' %}</a>
+
+
+    </tr>
+
+   {% endfor %}
+  </tbody>
+</table>
+    </div>
+</div>
+                </div>
+
+
+{% endblock %}

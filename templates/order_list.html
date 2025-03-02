@@ -1,0 +1,38 @@
+{% extends 'admin2.html' %}
+{% block content %}
+{% load static %}
+
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px;">
+    <h1 style="color: #444; text-align: center; margin-bottom: 20px;">Orders Dashboard</h1>
+    <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <thead>
+            <tr style="background-color: #f4f4f4; text-align: left; border-bottom: 2px solid #ddd;">
+                <th style="padding: 12px; font-size: 16px;">Order ID</th>
+                <th style="padding: 12px; font-size: 16px;">User</th>
+                <th style="padding: 12px; font-size: 16px;">Order Date</th>
+                <th style="padding: 12px; font-size: 16px;">Total Price</th>
+                <th style="padding: 12px; font-size: 16px; text-align: center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr style="border-bottom: 1px solid #ddd;">
+                <td style="padding: 12px; font-size: 15px;">{{ order.order_id }}</td>
+                <td style="padding: 12px; font-size: 15px;">{{ order.user.username }}</td>
+                <td style="padding: 12px; font-size: 15px;">{{ order.order_date }}</td>
+                <td style="padding: 12px; font-size: 15px; color: #2c3e50;">₹{{ order.total_price }}</td>
+                <td style="padding: 12px; text-align: center;">
+                    <a href="{% url 'admin_order_detail_view' order.order_id %}" style="text-decoration: none; background-color: #3498db; color: white; padding: 8px 16px; border-radius: 5px; font-size: 14px; transition: background-color 0.3s;">
+                        View Details
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" style="padding: 12px; text-align: center; color: #888;">No orders found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}

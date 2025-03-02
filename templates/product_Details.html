@@ -1,0 +1,105 @@
+{% extends 'admin2.html' %}
+{% block content %}
+
+
+<style>
+    .customer-details {
+        margin: 50px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+    }
+
+    .customer-details h5 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .customer-details p {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .customer-details p strong {
+        color: #333;
+    }
+
+#myimg1, #myimg2, #myimg3{
+    cursor : pointer;
+ }
+    #myimg1:hover {opacity: 0.7;}
+    #myimg2:hover {opacity: 0.7;}
+    #myimg3:hover {opacity: 0.7;}
+</style>
+
+<div class="customer-details">
+    <h5>Product Details</h5>
+    <p><img src=" {{ product_id.image.url }}" alt="{{ product_id.product_name }}" style="width: 100px; height: auto; border-radius: 5px;">  <strong>{{ product_id.product_name }}</strong> </p>
+    <p><strong>Product ID :</strong> {{ product_id.pk }}</p>
+    <p><strong>Brand :</strong> {{ product_id.brand }}</p>
+    <p><strong>MRP :</strong> ₹ {{ product_id.MRP }}</p>
+    <p><strong>Unit Price :</strong> ₹ {{ product_id.price }}</p>
+    <p><strong>Category :</strong> {{ product_id.Category }}</p>
+    <p><strong>Sub-Category :</strong> {{ product_id.Sub_Category }}</p>
+    <p><strong>Product Description :</strong> {{ product_id.description }}</p>
+    <p><strong>Total Quantity :</strong> {{ product_id.QTY }}</p>
+    <div class="row">
+  <div class="col">
+    <img id="myimg1" src="{{ product_id.image.url }}" alt="{{ product_id.product_name }}" style="width: 80px; height: auto; border-radius: 5px;">
+  </div>
+  <div class="col">
+    <img id="myimg2" src="{{ product_id.image2.url }}" alt="{{ product_id.product_name }}" style="width: 80px; height: auto; border-radius: 5px;">
+  </div>
+  <div class="col">
+    <img id="myimg3" src="{{ product_id.image3.url }}" alt="{{ product_id.product_name }}" style="width: 80px; height: auto; border-radius: 5px;">
+  </div>
+</div>
+
+</div>
+     <!-- The Modal -->
+   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Image Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="img01" style="width: 100%;" alt="Preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add click event listeners to all images with IDs starting with "myimg"
+    document.querySelectorAll('[id^="myimg"]').forEach((img) => {
+      img.addEventListener('click', function () {
+        // Get the modal and the modal image
+        const modal = new bootstrap.Modal(document.getElementById('myModal'));
+        const modalImg = document.getElementById('img01');
+
+        // Update the modal image source to match the clicked image
+        modalImg.src = this.src;
+
+        // Show the modal
+        modal.show();
+      });
+    });
+  });
+</script>
+
+
+
+{% endblock %}

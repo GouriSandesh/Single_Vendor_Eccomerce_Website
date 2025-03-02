@@ -1,0 +1,66 @@
+{% extends 'admin2.html' %}
+{% block content %}
+{% load static %}
+
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px;">
+
+    <!-- Order Heading -->
+    <h1 style="color: #444; text-align: center; margin-bottom: 20px;">Order Details: {{ order.order_id }}</h1>
+
+    <!-- Order Overview -->
+    <div style="background-color: white; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); margin-bottom: 30px;">
+        <p style="font-size: 18px; color: #333;">User: <strong>{{ order.customer.Name }}</strong></p>
+        <p style="font-size: 18px; color: #333;">Order Date: <strong>{{ order.order_date }}</strong></p>
+        <p style="font-size: 18px; color: #333;">Total Price: <strong style="color: #e67e22;">₹{{ order.total_price }}</strong></p>
+        <p style="font-size: 18px; color: #333;">Shipping Address: <strong style="color: #e67e22;">{{ billing_address }}</strong></p>
+
+
+    </div>
+
+    <!-- Items Table -->
+    <h2 style="color: #444; margin-bottom: 20px;">Items</h2>
+    <table style="width: 100%; border-collapse: collapse; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <thead>
+            <tr style="background-color: #f4f4f4; text-align: left; border-bottom: 2px solid #ddd;">
+                <th style="padding: 12px; font-size: 16px;">Image</th>
+                <th style="padding: 12px; font-size: 16px;">Product</th>
+                <th style="padding: 12px; font-size: 16px;">Description</th>
+<!--                <th style="padding: 12px; font-size: 16px;">Quantity</th>-->
+                <th style="padding: 12px; font-size: 16px;">Unit Price</th>
+                <th style="padding: 12px; font-size: 16px;">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order_items %}
+            <tr style="border-bottom: 1px solid #ddd;">
+                <!-- Product Image -->
+                <td style="padding: 12px; text-align: center;">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.product_name }}" style="width: 80px; height: auto; border-radius: 5px;">
+                </td>
+                <!-- Product Name -->
+                <td style="padding: 12px; font-size: 15px;">{{ item.product.product_name }}</td>
+                <!-- Product Description -->
+                <td style="padding: 12px; font-size: 15px; color: #555;">{{ item.product.description|truncatewords:15 }}</td>
+                <!-- Quantity -->
+<!--                <td style="padding: 12px; font-size: 15px;">{{ item.product.QTY }}</td>-->
+                <!-- Unit Price -->
+                <td style="padding: 12px; font-size: 15px;">₹{{ item.product.price }}</td>
+                <!-- Total Price -->
+                <td style="padding: 12px; font-size: 15px; color: #2c3e50;">₹{{ order.total_price }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" style="padding: 12px; text-align: center; color: #888;">No items found for this order.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Back Button -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'admin_orders_view' %}" style="background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; font-size: 16px; border-radius: 5px; transition: background-color 0.3s;">
+            Back to Orders
+        </a>
+    </div>
+</body>
+{% endblock %}
