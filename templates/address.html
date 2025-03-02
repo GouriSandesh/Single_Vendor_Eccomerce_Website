@@ -1,0 +1,24 @@
+{% extends 'cust_dash.html' %}
+{% block content %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+
+    <div style="min-height:300px">
+        <div>
+            <div style="text-align:center;padding-top:100px; min-height:100px;margin-left:350px">
+                <img src="{% static 'images/banners/add1.jpg' %}" style="width:350px; height:203px">
+                <h5>SAVE YOUR ADDRESSES NOW</h5>
+                <p>Add your home and office addresses and enjoy faster checkout</p>
+                <a href="{% url 'add_address' %}" class="btn btn-primary" role="switch">+ADD NEW ADDRESS </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

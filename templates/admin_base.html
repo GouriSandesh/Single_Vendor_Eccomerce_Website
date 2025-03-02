@@ -1,0 +1,84 @@
+{% extends 'admin2.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Cards Section -->
+            <div class="col-lg-4">
+                <div class="card overflow-hidden hover-img">
+                    <div class="position-relative">
+                        <a href="javascript:void(0)">
+                            <img src="https://img.freepik.com/free-vector/brand-loyalty-concept-illustration_114360-12422.jpg?t=st=1731661468~exp=1731665068~hmac=2cf8a559357a7a8cd6c6045c9b19067daac0b582553ec65d29aa5ddd5da4622e&w=740" class="card-img-top" alt="matdash-img">
+                        </a>
+                    </div>
+                    <div class="card-body p-4">
+                        <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="{% url 'custView' %}">{{ total_customers }}</a>
+                        <div class="d-flex align-items-center gap-4">
+                            Total Customers
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card overflow-hidden hover-img">
+                    <div class="position-relative">
+                        <a href="javascript:void(0)">
+                            <img src="https://img.freepik.com/free-vector/no-time-concept-illustration_114360-6880.jpg?t=st=1731661250~exp=1731664850~hmac=71c04aa54f0690972ff446ff9f240af40398870c5ed63447e6173d782425a716&w=740" class="card-img-top" alt="matdash-img">
+                        </a>
+                    </div>
+                    <div class="card-body p-4">
+                        <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="{% url 'admin_orders_view' %}">{{ total_orders }}</a>
+                        <div class="d-flex align-items-center gap-4">
+                            Orders
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card overflow-hidden hover-img">
+                    <div class="position-relative">
+                        <a href="javascript:void(0)">
+                            <img src="https://img.freepik.com/free-vector/shopping-cart-with-boxes-concept-illustration_114360-22402.jpg?t=st=1731661742~exp=1731665342~hmac=cfd68416c00187cdd244ea745dd2982a34dcbfeb4dd5752e3efc99e8a2ab40aa&w=740" class="card-img-top" alt="matdash-img">
+                        </a>
+                    </div>
+                    <div class="card-body p-4">
+                        <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="{% url 'product_view' %}">{{ total_products }}</a>
+                        <div class="d-flex align-items-center gap-4">
+                            Products
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Traffic Overview Section -->
+        <div class="row mt-4">
+            <div class="col-lg-12"> <!-- Expanded to full width -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex align-items-center gap-2 mb-4">
+                            Traffic Overview
+                            <span>
+                                <iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Traffic Overview"></iconify-icon>
+                            </span>
+                        </h5>
+                        <div id="traffic-overview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'JS/apexcharts.min.js' %}"></script>
+    <script src="{% static 'JS/dashboard.js' %}"></script>
+</body>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'cust_dash.html' %}
+{% block content %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<div class="container mt-4">
+    {% if has_addresses %}
+        <!-- If addresses exist, display them in a table -->
+        <h5 class="card-title">Manage Your Addresses</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Type</th>
+                        <th>Address</th>
+                        <th>Locality</th>
+                        <th>District</th>
+                        <th>State</th>
+                        <th>Pincode</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for address in data %}
+                    <tr>
+                        <td>{{ address.Type|title }}</td>
+                        <td>{{ address.Address }}</td>
+                        <td>{{ address.Locality }}</td>
+                        <td>{{ address.District }}</td>
+                        <td>{{ address.State }}</td>
+                        <td>{{ address.Pincode }}</td>
+                        <td>
+                            <!-- Add buttons for edit and delete if needed -->
+                            <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- Button to trigger the form modal -->
+        <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#addAddressModal">
+            + ADD NEW ADDRESS
+        </button>
+    {% else %}
+        <!-- No addresses found, display prompt to add new addresses -->
+        <div class="text-center" style="padding: 100px 0;">
+            <img src="{% static 'images/banners/add1.jpg' %}" style="width:350px; height:203px" alt="Add Address">
+            <h5 class="mt-4">SAVE YOUR ADDRESSES NOW</h5>
+            <p>Add your home and office addresses for faster checkout.</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAddressModal">
+                + ADD NEW ADDRESS
+            </button>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Modal for the address form -->
+<div class="modal fade" id="addAddressModal" tabindex="-1" role="dialog" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAddressModalLabel">Add New Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Address form inside modal -->
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary btn-block">Save Address</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
