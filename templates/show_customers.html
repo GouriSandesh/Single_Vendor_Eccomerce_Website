@@ -1,0 +1,49 @@
+{% extends 'admin.html' %}
+{% block content %}
+
+<div >
+  <div class="table-responsive" style="margin-left:50px">
+    <div>
+      <div class="card-header">
+        <h1 class="h1">All Customers</h1>
+      </div>
+
+     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CUSTOMER ID</th>
+      <th scope="col">CUSTOMER</th>
+      <th scope="col">MOBILE NUMBER</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">ENROLLED</th>
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for i in data %}
+    <tr>
+      <td><a href="#" style="text-decoration : none; padding-left:40px; color:black;"># {{forloop.counter}}</a> </td>
+      <td>{{i.Name}}</td>
+      <td>{{i.Mobile}}</td>
+      <td>{{i.Email}}</td>
+
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+<nav aria-label="Page navigation example" style="margin:20px; display:flex">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+
+{% endblock %}
