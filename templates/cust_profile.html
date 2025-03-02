@@ -1,0 +1,157 @@
+
+{% extends 'cust_dash.html' %}
+{% block content %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+<style>
+  input[readonly] {
+    cursor: not-allowed;
+    color:Black;
+  }
+</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Accounts - Product Admin Template</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'CSS/templatemo-style.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  </head>
+
+
+  <body id="reportsPage">
+    <div class="" id="home">
+      <div class="container mt-5">
+        <!-- row -->
+        <div class="row tm-content-row">
+          <div class="tm-block-col tm-col-avatar">
+            <div class="tm-bg-primary-dark tm-block tm-block-avatar">
+              <h2 class="tm-block-title">Personal Information</h2>
+                <p style="color:white;">Hey there! Fill in your details for a personalized shopping experience.</p>
+              <div class="tm-avatar-container">
+                <img
+                  src="{% static 'images/avatars/personal.jpg' %}"
+                  alt="Avatar"
+                  class="tm-avatar img-fluid mb-4"
+                />
+
+              </div>
+              <div class="tm-avatar-container">
+
+</div>
+            </div>
+          </div>
+          <div class="tm-block-col tm-col-account-settings">
+            <div class="tm-bg-primary-dark tm-block tm-block-settings">
+  <h2 class="tm-block-title">Account Settings</h2>
+          <form action="{% url 'profile_view' %}" method="post" class="tm-signup-form row">
+  {% csrf_token %}
+  <div class="form-group col-lg-6">
+    <label for="name">Account Name</label>
+    <input
+      id="name"
+      name="Name"
+      type="text"
+      class="form-control validate"
+      value="{{ form.Name.value }}"
+      readonly
+    />
+  </div>
+  <div class="form-group col-lg-6">
+    <label for="email">Account Email</label>
+    <input
+      id="email"
+      name="Email"
+      type="email"
+      class="form-control validate"
+      value="{{ form.Email.value }}"
+      readonly
+    />
+  </div>
+  <div class="form-group col-lg-6">
+    <label for="phone">Phone</label>
+    <input
+      id="phone"
+      name="Mobile"
+      type="tel"
+      class="form-control validate"
+      value="{{ form.Mobile.value }}"
+      readonly
+    />
+  </div>
+  <div class="form-group col-lg-6">
+    <label for="phone">Alternate Phone</label>
+    <input
+      id="phone"
+      name="phone"
+      type="tel"
+      class="form-control validate"
+      value="{{ form.phone.value }}"
+      readonly
+    />
+  </div>
+  <div class="form-group col-lg-6">
+    <button type="button" id="editProfileBtn" class="btn btn-primary">
+      Edit Profile
+    </button>
+  </div>
+  <div class="form-group col-lg-6" id="saveChangesBtnContainer" style="display: none;">
+    <button type="submit" id="saveChangesBtn" class="btn btn-success btn-block text-uppercase">
+      Save Changes
+    </button>
+  </div>
+</form>
+
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+    <script>
+  document.getElementById('editProfileBtn').addEventListener('click', function () {
+    // Enable all inputs that are marked as readonly
+    const inputs = document.querySelectorAll('input[readonly]');
+    inputs.forEach((input) => {
+      input.removeAttribute('readonly');
+    });
+
+    // Hide the "Edit Profile" button
+    this.style.display = 'none';
+
+    // Show the "Save Changes" button
+    const saveChangesBtnContainer = document.getElementById('saveChangesBtnContainer');
+    saveChangesBtnContainer.style.display = 'block';
+  });
+
+
+</script>
+
+
+    <script>
+  feather.replace();
+</script>
+    <!-- https://getbootstrap.com/ -->
+  {% endblock %}
+

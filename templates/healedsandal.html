@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load crispy_forms_tags
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dresses   Shopping</title>
+
+      <!-- Feather-Icons-->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link href="{% static 'CSS/pages.css'%}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+
+<!--  JQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <style>
+
+  body{
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .navbar-nav{
+    margin-left: 100px;
+  }
+
+  .nav-item{
+    padding-left: 15px;
+  }
+
+
+  #search{
+    width: 350px;
+  }
+
+  #logo{
+    font-family:cursive;
+  }
+
+  .dropdown:hover .dropdown-menu{
+    display: block;
+  }
+
+  #searchform input{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  #searchform button{
+    border: 0;
+  }
+
+  .nav-item a{
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .topCategories{
+    padding: 20px;
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap
+}
+
+.item-img{
+    padding-left: 20px;
+<!--    border-radius: 30%;-->
+}
+
+#txt{
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.tile-2{
+    left: 0;
+    bottom: 0;
+    text-align: center;
+
+
+
+}
+
+.overlay-text-2{
+  right: 20px;
+  background-color: rgba(51, 44, 44, 0.7);
+  color: white;
+  margin-left: 20px;
+  position: absolute;
+  padding: 10px;
+  width: 285px;
+
+}
+
+.imgCategories{
+    position: relative;
+}
+.unit2-head h2{
+    padding: 30px;
+    text-align: center;
+    color: brown;
+    font-weight: 400;
+    font-family: monospace;
+}
+
+.headSection{
+    text-align: center;
+}
+
+.common{
+    padding-top: 20px;
+}
+
+
+/* The login button styling */
+        #loginBtn {
+            display: block;
+<!--            margin: 100px auto;-->
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+/* The popup login form - initially hidden */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The login form itself */
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Input fields styling */
+        .popup-content input[type="text"],
+        .popup-content input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* The submit button styling */
+        .popup-content input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Close button */
+        .close {
+            color: red;
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+  </style>
+</head>
+<body>
+    {% include 'nav.html'%}
+
+      <!-- Categories -->
+      <section class="topCategories">
+        <div class="container">
+          <div class="row">
+            <div class="unit2-head">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Women</li>
+                </ol>
+              </nav>
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'women' %}">Women</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dresses</li>
+                    </ol>
+                </nav>
+
+            </div>
+            <div class="grid">
+                    {% for gown in gowns %}
+
+              <div class="common" style="padding:10px">
+                  <a href="{% url 'gown_detail' pk=gown.pk %}" class="units"><img src="{{gown.image.url}}" alt="Denim Jeans" width="auto" height="425px"></a>
+                  <h5 class="card-title font-weight-bold">{{gown.product_name}}</h5>
+                  <p class="price">₹{{gown.price}}</p>
+<button type="submit" class="btn btn-primary align-center loginBtn">Wishlist</button>
+<!-- The Popup Form -->
+<div class="popup loginPopup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm" method="post" action="{% url 'custom_login' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <a href="#">Forget Password</a>
+            <input type="submit" value="Login">
+        </form>
+        <div class="signup">
+            <span class="signup">New to FashionEmpire?
+                <a href="{% url 'signup' %}">Create an account</a>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+            </div>
+                    {% endfor %}
+
+
+          </div>
+        </div>
+      </section>
+
+
+
+<script> feather.replace();</script>
+
+<script>
+   // Get all login buttons and popups
+const loginButtons = document.querySelectorAll('.loginBtn');
+const loginPopups = document.querySelectorAll('.loginPopup');
+const closeButtons = document.querySelectorAll('.close');
+
+// Loop through all login buttons
+loginButtons.forEach((loginBtn, index) => {
+    const loginPopup = loginPopups[index];
+    const closeBtn = closeButtons[index];
+
+    // Open the popup when the button is clicked
+    loginBtn.onclick = function() {
+        loginPopup.style.display = 'flex';
+    };
+
+    // Close the popup when the close button is clicked
+    closeBtn.onclick = function() {
+        loginPopup.style.display = 'none';
+    };
+
+    // Close the popup if user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target === loginPopup) {
+            loginPopup.style.display = 'none';
+        }
+    };
+});
+
+
+</script>
+</body>
+</html>

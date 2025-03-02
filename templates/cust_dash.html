@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/logo/felogo.png' %}" />
+  <link rel="stylesheet" href="{% static 'CSS/styles.min.css' %}" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+
+<style>
+  a{
+  text-decoration:none;
+  }
+</style>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="{% url 'user_home' %}" class="text-nowrap logo-img" style="color:black">
+            <img src="{% static 'images/logo/felogo.png' %}" alt="" height="80px">FashionEmpire
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'custdash_view' %}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'admin_dash' %}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="material-symbols:orders-outline-rounded" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Orders & Returns</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Account Settings</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'profile_view' %}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="iconamoon:profile-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Profile Information</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="#" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="tabler:address-book" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Manage Addresses</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon>
+              <span class="hide-menu">My Stuffs</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'wishlist_detail' %}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="mdi:heart" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">My Wishlist</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'cart_detail' %}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="mdi:cart-outline" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">My Cart</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4" class="fs-6"></iconify-icon>
+              <span class="hide-menu">Misc</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="material-symbols:support-agent" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Support</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'signout' %}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="mdi:logout" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+              {% block content %}
+                    {% endblock %}
+            </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

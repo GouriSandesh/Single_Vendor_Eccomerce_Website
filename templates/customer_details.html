@@ -1,0 +1,42 @@
+{% extends 'admin2.html' %}
+{% block content %}
+<style>
+    .customer-details {
+        margin: 50px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+    }
+
+    .customer-details h5 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .customer-details p {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .customer-details p strong {
+        color: #333;
+    }
+</style>
+
+<div class="customer-details">
+    <h5>Customer Details</h5>
+    <p><strong>Customer ID:</strong> {{ cust_id.pk }}</p>
+    <p><strong>Name:</strong> {{ cust_id.Name }}</p>
+    <p><strong>Mobile Number:</strong> {{ cust_id.Mobile }}</p>
+    <p><strong>Email:</strong> {{ cust_id.Email }}</p>
+<!--    <p><strong>Enrolled:</strong> {{ cust_id.enrolled }}</p>-->
+</div>
+{% endblock %}

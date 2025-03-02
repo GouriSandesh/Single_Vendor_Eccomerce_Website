@@ -1,0 +1,319 @@
+<!doctype html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artificial Jewellery</title>
+
+    <!-- Feather-Icons-->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link href="{% static 'CSS/pages.css'%}">
+</head>
+  <style>
+
+  body{
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .navbar-nav{
+    margin-left: 100px;
+  }
+
+  .nav-item{
+    padding-left: 15px;
+  }
+
+
+  #search{
+    width: 350px;
+  }
+
+  #logo{
+    font-family:cursive;
+  }
+
+  .dropdown:hover .dropdown-menu{
+    display: block;
+  }
+
+  #searchform input{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  #searchform button{
+    border: 0;
+  }
+
+  .nav-item a{
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+
+footer a{
+  text-decoration: none;
+  color: black;
+}
+
+.main-ban{
+  transition: 0.5s;
+}
+
+.main-ban:hover {
+  /* box-shadow: 0 0 55px rgba(7, 7, 8, 0.4); */
+  box-shadow: 0 0 60px rgb(10, 0, 0);
+  transform: scale(1.1);
+}
+
+.imgCategories{
+    position: relative;
+  transition: 0.5s;
+
+}
+.imgCategories:hover{
+      box-shadow: 0 0 60px rgb(10, 0, 0);
+  transform: scale(1.1);
+
+
+}
+
+  .topCategories{
+    padding: 20px;
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap
+}
+
+.item-img{
+<!--    padding-left: 20px;-->
+    border-radius: 30%;
+}
+
+#txt{
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.tile-2{
+    left: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.overlay-text-2{
+  right: 20px;
+  background-color: rgba(51, 44, 44, 0.7);
+  color: white;
+  margin-left: 10px;
+  position: absolute;
+  padding: 10px;
+  width: 285px;
+
+}
+
+
+.unit2-head h2{
+    padding: 30px;
+    text-align: center;
+    color: brown;
+    font-weight: 400;
+    font-family: monospace;
+}
+
+.headSection{
+    text-align: center;
+}
+
+.common{
+    padding: 9px;
+}
+
+  .video-container {
+            display: flex;
+            justify-content: space-around; /* Distribute the videos evenly */
+            align-items: center;
+            margin-top: 20px;
+        }
+        .video-item {
+            width: 30%; /* Adjust video width to fit 3 videos in one row */
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* Optional: to give rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: to add a subtle shadow */
+        }
+  </style>
+<body>
+    {% include 'nav.html'%}
+
+ <div class="container">
+        <div class="video-container">
+            <!-- First video -->
+            <div class="video-item">
+                <video autoplay loop muted>
+                    <source src="{% static 'images/banners/jewel1.mp4' %}" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+<!--                <p class="text-center mt-2">First Slide Label</p>-->
+            </div>
+
+            <!-- Second video -->
+            <div class="video-item">
+                <video autoplay loop muted>
+                    <source src="{% static 'images/banners/jewel2.mp4' %}" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+<!--                <p class="text-center mt-2">Second Slide Label</p>-->
+            </div>
+
+            <!-- Third video -->
+            <div class="video-item">
+                <video autoplay loop muted>
+                    <source src="{% static 'images/banners/jewel3.mp4' %}" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+<!--                <p class="text-center mt-2">Third Slide Label</p>-->
+            </div>
+        </div>
+    </div>
+
+<!-- Include Bootstrap JS (use proper version based on your project setup) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <section class=""></section>
+
+    <!-- Categories -->
+      <section class="topCategories">
+        <div class="container">
+          <div class="row">
+            <div class="unit2-head">
+              <h2 class="h2">Carry The Style</h2>
+              <span class="subhead"></span>
+            </div>
+            <div class="grid">
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'gold_view' %}" class="units"><img src="https://i.pinimg.com/564x/41/ee/54/41ee54d073c48d526a324b515222255d.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'gold_view' %}" id="txt">GOLD-PLATED JEWEL SETS</a></div>
+                </div>
+              </div>
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'neck_view' %}" class="units"><img src="https://img1.krishnajewellers.com/DealImages/10844/LargeImages/5.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'neck_view' %}" id="txt">NECKLACE</a></div>
+                </div>
+              </div>
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'earring_view' %}" class="units"><img src="https://i.pinimg.com/736x/80/33/a7/8033a71b6bb12ddc1e6e6ad0693b1d42.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'earring_view' %}" id="txt">EARRINGS</a></div>
+                </div>
+              </div><div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'ring_view' %}" class="units"><img src="https://cdn-media.glamira.com/media/product/newgeneration/view/1/sku/derry-r/diamond/diamond-Brillant_AAA/stone2/diamond-Swarovsky_AAAAA/alloycolour/red.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'ring_view' %}" id="txt">RINGS</a></div>
+                </div>
+              </div>
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'chain_view' %}" class="units"><img src="https://i.pinimg.com/474x/36/ee/a3/36eea3286b3665c586bd9f973638b5ac.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'chain_view' %}" id="txt">CHAINS & BRACELETS</a></div>
+                </div>
+              </div>
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'bangle_view' %}" class="units"><img src="https://i.pinimg.com/736x/2a/30/c9/2a30c9e52ad601b1bb11f486b1555c37.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'bangle_view' %}" id="txt">BANGLES</a></div>
+                </div>
+              </div>
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'silver_view' %}" class="units"><img src="https://i.pinimg.com/736x/27/6f/3c/276f3c7174c3132fb9ec057b1fffa7f9.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'silver_view' %}" id="txt">SILVER JEWEL SETS</a></div>
+                </div>
+              </div >
+              <div class="common">
+                <div class="imgCategories">
+                  <a href="{% url 'pendant_view' %}" class="units"><img src="https://i.pinimg.com/474x/33/93/86/3393869722e6c069b0a381dd81920e2c.jpg" alt="" width="305.20px" height="343.71" class="item-img"></a>
+                  <div class="overlay-text-2 tile-2"><a href="{% url 'pendant_view' %}" id="txt">PENDANT</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+<footer class="bg-body-tertiary" style="margin-top: 20px; padding: 20px; font-family: cursive;">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p style="padding-left:30px;">FashionEmpire</p>
+            <ul style="list-style: none;">
+              <li><a href="#">Who we are</a></li>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Blogs</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Terms & Condition</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <p style="padding-left:30px;">Help</p>
+            <ul style="list-style: none;">
+              <li><a href="#">Track Your Order</a></li>
+              <li><a href="#">FAQ's</a></li>
+              <li><a href="#">Returns & Refunds</a></li>
+              <li><a href="#">Cancellations</a></li>
+              <li><a href="#">Payments</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <p style="padding-left:30px;">Shop By</p>
+            <ul style="list-style: none;">
+              <li><a href="#">Men</a></li>
+              <li><a href="{% url 'women' %}">Women</a></li>
+              <li><a href="{% url 'kids' %}">Kids</a></li>
+              <li><a href="#">Bags</a></li>
+              <li><a href="#">Jewellery</a></li>
+              <li><a href="#">Footwear</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <p style="padding-left:40px;">Follow Us</p>
+            <ul style="list-style: none;">
+              <li><a href="#"><span style="padding-right: 5px;"><i data-feather="facebook"></i></span>Facebook</a></li>
+              <li><a href="#"><span style="padding-right: 5px;"><i data-feather="instagram"></i></span>Instagram</a></li>
+              <li><a href="#"><span style="padding-right: 5px;"><i data-feather="twitter"></i></span>Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+<script> feather.replace();</script>
+</body>
+</html>

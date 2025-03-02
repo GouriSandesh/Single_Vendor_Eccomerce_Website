@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            color: #dc3545;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .nav {
+            margin-top: 20px;
+        }
+        .link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1 class="title">Order Error</h1>
+        <p>We couldn't process your order due to an error.</p>
+        <p>Please try the following:</p>
+        <ul style="list-style:none">
+            <li>Ensure your payment information is correct and try again.</li>
+            <li>Contact our support team if the issue persists.</li>
+        </ul>
+        <nav class="nav">
+            <a href="{% url 'user_home' %}" class="link">Go to Homepage</a>&nbsp;|&nbsp;
+            <a href="#" class="link">Contact Support</a>
+        </nav>
+    </main>
+</body>
+</html>
