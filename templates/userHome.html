@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping for Wome,Men,Kids & Lifestyle</title>
+
+    <!-- CSS -->
+     <link rel="stylesheet" href="{% static 'CSS/userhome.css' %}">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Feather-Icons-->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+        <div class="container-fluid">
+          <a id="logo" class="navbar-brand" href="#">FashionEmpire</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'user_men' %}">MEN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_women' %}">WOMEN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_kids' %}">KIDS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_jewel' %}">JEWELLERY</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_bag' %}">BAGS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_foot' %}">FOOTWEAR</a>
+              </li>
+              <form class="d-flex" role="search" id="searchform">
+                <input id="search" class="form-control me-2" type="search" placeholder="Search for products,brands and more" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit"><i data-feather="search"></i></button>
+              </form>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i data-feather="user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'custdash_view' %}">My Account</a></li>
+                  <li><a class="dropdown-item" href="{% url 'orders_view' %}">Orders</a></li>
+                  <li><a class="dropdown-item" href="{% url 'wishlist_detail' %}">Wishlist</a></li>
+                  <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                  <li><a class="dropdown-item" href="{% url 'signout' %}">Log Out</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link popUp " href="{% url 'wishlist_detail' %}"><i data-feather="heart"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart_detail' %}"><i data-feather="shopping-bag"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Carousel -->
+
+      <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'images/banners/1.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/banners/2.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/banners/3.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/banners/4.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/banners/5.png' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+      <!-- Brands Banner -->
+      <div class="LazyLoad">
+        <div class="component-layout">
+          <div style="overflow: hidden;">
+            <div class="full-width">
+              <div class="banner-detail" role="presentation" style="overflow: hidden; width: 100%; vertical-align: bottom; margin-left: 50px; margin-top: 10px;">
+                <div class="img-animate" style="width: 100%; display: flex;" >
+                  <img src="{% static 'images/banners/brands.png' %}" name="main-banner" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand Images -->
+      <div class="LazyLoad">
+        <div class="component-layout">
+          <div style="overflow: hidden;">
+            <div class="full-width">
+              <div class="banner-detail" role="presentation" style="overflow: hidden; width: 100%; vertical-align: bottom;">
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/netplay.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/avaasa.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/dnmx.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/frnds.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/fusion.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/rio.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/dndxkid.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card brand-name" style="width: 18rem;">
+                        <img src="{% static 'images/brands/john.png' %}" class="card-img-top" alt="...">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Banner -->
+      <div class="LazyLoad">
+        <div class="component-layout">
+          <div style="overflow: hidden;">
+            <div class="full-width">
+              <div class="banner-detail" role="presentation" style="overflow: hidden; width: 100%; vertical-align: bottom; margin-left: 50px; margin-top: 10px;">
+                <div class="img-animate" style="width: 100%; display: flex;" >
+                  <img src="{% static 'images/banners/findstyle.png' %}" name="main-banner" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Product List -->
+     <div class="LazyLoad">
+      <div class="component-layout">
+        <div style="overflow: hidden;">
+          <div class="full-width">
+            <div class="banner-detail" role="presentation" style="overflow: hidden; width: 100%; vertical-align: bottom;">
+              <div class="container text-center">
+                <div class="row g-3">
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_kurta_view' %}"><img src="{% static 'images/pdtlist/kurta.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">KURTA & KURTIS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 80% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_saree_view' %}"><img src="{% static 'images/pdtlist/saree.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">SAREES</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="#"><img src="{% static 'images/pdtlist/kidswr.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">KIDS WEAR</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_shirt_view' %}"><img src="{% static 'images/pdtlist/shirts.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">SHIRTS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 80% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_mjeans_view' %}"><img src="{% static 'images/pdtlist/jeansmen.jpg' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">JEANS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_shoe_view' %}"><img src="{% static 'images/pdtlist/shoes.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">CASUAL SHOES</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 80% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_tshirt_view' %}"><img src="{% static 'images/pdtlist/tshirts.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">T-SHIRTS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 90% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_gown_view' %}"><img src="{% static 'images/pdtlist/frocks.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">FROCKS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 80% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_top_view' %}"><img src="{% static 'images/pdtlist/tops.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">TOPS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_track_view' %}"><img src="{% static 'images/pdtlist/tracks.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">TOPS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 60% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <a href="{% url 'user_gown_view' %}"><img src="{% static 'images/pdtlist/dressess.png' %}" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">DRESSES</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <img src="{% static 'images/pdtlist/jump.png' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">JUMPSUITS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <img src="{% static 'images/pdtlist/womenfoot.png' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">WOMEN FOOTWEAR</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <img src="{% static 'images/pdtlist/bags.png' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">BAGS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <img src="{% static 'images/pdtlist/maternity.png' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">MATERNITY WEAR</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 80% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card categories-image" style="width: 18rem;">
+                      <img src="{% static 'images/pdtlist/backpack.png' %}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 700; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">BACKPACKS</h5>
+                        <p class="card-text" style="font-family:'Times New Roman', Times, serif; font-weight: 600;">UPTO 70% OFF</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-body-tertiary" style="margin-top: 20px; padding: 20px; font-family: cursive;">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p style="padding-left:30px;">FashionEmpire</p>
+            <ul style="list-style: none;">
+              <li><a href="#">Who we are</a></li>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Blogs</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Terms & Condition</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <p style="padding-left:30px;">Help</p>
+            <ul style="list-style: none;">
+              <li><a href="#">Track Your Order</a></li>
+              <li><a href="#">FAQ's</a></li>
+              <li><a href="#">Returns & Refunds</a></li>
+              <li><a href="#">Cancellations</a></li>
+              <li><a href="#">Payments</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <p style="padding-left:30px;">Shop By</p>
+            <ul style="list-style: none;">
+              <li><a href="#">Men</a></li>
+              <li><a href="#">Women</a></li>
+              <li><a href="#">Kids</a></li>
+              <li><a href="#">Bags</a></li>
+              <li><a href="#">Jewellery</a></li>
+              <li><a href="#">Footwear</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <p style="padding-left:40px;">Follow Us</p>
+            <ul style="list-style: none;">
+              <li><a href="#"><span style="padding-right: 5px;"><i data-feather="facebook"></i></span>Facebook</a></li>
+              <li><a href="#"><span style="padding-right: 5px;"><i data-feather="instagram"></i></span>Instagram</a></li>
+              <li><a href="#"><span style="padding-right: 5px;"><i data-feather="twitter"></i></span>Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
